@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso JavaScript | Rocketseat - Starter</title>
+</head>
+<body>
+    
+    <script>
+
+        var endereco = {
+            rua: "Rua dos pinheiros",
+            numero: 1293,
+            bairro: "Centro",
+            cidade: "São Paulo",
+            uf: "SP"
+        };
+        console.log("O usuário mora em "+endereco.cidade+"/"+endereco.uf+", no bairro "+endereco.bairro+", na rua "+endereco.rua+" com nº"+endereco.numero);
+
+        function pares(x, y){
+            while(x <= y){
+                if(x%2 === 0){
+                    console.log(x);
+                }
+                x++;
+            }
+        }
+        pares(32, 50);
+
+        function temHabilidade(skills) {
+            if(skills.indexOf("Javascript") !== -1){
+                console.log(true);
+            }else{
+                console.log(false);
+            }
+        }
+        var skills = ["Javascript", "ReactJS", "React Native"];
+        temHabilidade(skills); // true ou false
+
+        function experiencia(anos) {
+            if(anos <= 1){
+                console.log("Iniciante");
+            }else if(anos <= 3){
+                console.log("Intermediário");
+            }else if(anos <= 6){
+                console.log("Avançado");
+            }else{
+                console.log("Jedi Master");
+            }
+        }
+        var anosEstudo = 7;
+        experiencia(anosEstudo);
+
+        var usuarios = [
+            {
+                nome: "Diego",
+                habilidades: ["Javascript", "ReactJS", "Redux"]
+            },
+            {
+                nome: "Gabriel",
+                habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+            }
+        ];        
+        function logHabilidades(usuarios){
+            for(usuario of usuarios){
+                console.log("O "+ usuario.nome +" possui as habilidades: "+ usuario.habilidades.join(", "));
+            }
+        }
+        logHabilidades(usuarios);
+
+    </script>
+</body>
+</html>
