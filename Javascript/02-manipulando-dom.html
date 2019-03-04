@@ -8,26 +8,78 @@
 </head>
 <body>
     <div id="app">
-        <!-- <button onmouseover="mostraAlerta()">Me pressione</button> -->
+        <button onclick="criaQuadrado();">Gera quadrado</button>
     </div>
-
+    
+    <div id="lista_nomes">
+        <ul id="nomes">
+            
+        </ul>
+        <input type="text" name="nome">
+        <button onClick="adicionarNome();">Adicionar</button>
+    </div>
+    
     <script>
-
-        function mostraAlerta(){
-            alert('Botão clicado');
-        }
-
-        var linkElement = document.createElement('a');
-        linkElement.setAttribute('href', '#nolink');
+    
+    // function mostraAlerta(){
+        //     alert('Botão clicado');
+        // }
         
-        var textElement = document.createTextNode('Acessar no site');
-
-        linkElement.appendChild(textElement);
-
-        var containerElement = document.getElementById('app');
-
-        containerElement.appendChild(linkElement);
-
+        // var linkElement = document.createElement('a');
+        // linkElement.setAttribute('href', '#nolink');
+        
+        // var textElement = document.createTextNode('Acessar no site');
+        
+        // linkElement.appendChild(textElement);
+        
+        // var containerElement = document.getElementById('app');
+        
+        // containerElement.appendChild(linkElement);
+        
+        function criaQuadrado(){                
+            var containerElement = document.getElementById('app');
+            var quadrado = document.createElement('div');
+            quadrado.style.backgroundColor = '#f00';
+            quadrado.style.width = '100px';
+            quadrado.style.height = '100px';
+            quadrado.style.margin = "10px";
+            
+            quadrado.onmouseover = function(){
+                quadrado.style.backgroundColor = getRandomColor();
+            };
+            
+            containerElement.appendChild(quadrado);
+        }
+        
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+        
+        var listaNomes = document.getElementById('nomes');
+        for(nome of nomes){
+            var itemDaLista = document.createElement('li');
+            var textoDoItemDaLista = document.createTextNode(nome);
+            itemDaLista.appendChild(textoDoItemDaLista);
+            listaNomes.appendChild(itemDaLista);
+        }
+        
+        function adicionarNome(){
+            var novoNome = document.querySelector('input[name=nome]');
+            var itemDaLista = document.createElement('li');
+            var textoDoItemDaLista = document.createTextNode(novoNome.value);
+            itemDaLista.appendChild(textoDoItemDaLista);
+            listaNomes.appendChild(itemDaLista);
+            novoNome.value = '';
+            novoNome.focus();
+        }
+        
     </script>
 </body>
 </html>
