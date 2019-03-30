@@ -169,4 +169,3 @@ const user = {
 };
 console.log(user);
 */
-"use strict";
