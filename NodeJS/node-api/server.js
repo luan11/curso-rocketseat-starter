@@ -4,6 +4,7 @@ const requireDir = require('require-dir');
 
 // Iniciando o APP
 const app = express();
+app.use(express.json());
 
 // Iniciando o DB
 mongoose.connect(
@@ -14,17 +15,7 @@ mongoose.connect(
 );
 requireDir('./src/models');
 
-const Product = mongoose.model('Product');
-
-// Criando primeira rota
-app.get('/', (req, res) => {
-    Product.create({
-        title: "Produto Fake",
-        description: "Produto Fake Descrição",
-        url: "http://www.produtofake.fake/"
-    });
-
-    return res.send('Hello Luandev');
-});
+// Routes
+app.use('/api', require('./src/routes'));
 
 app.listen(3001);
