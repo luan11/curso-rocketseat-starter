@@ -21,6 +21,6 @@
     "module1": "babel ./exercises/module1/main.js -o ./exercises/module1/app.js -w"
   },
   "dependencies": {
-    "axios": "^0.18.1"
+    "axios": "^0.21.1"
   }
 }
